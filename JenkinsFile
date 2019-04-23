@@ -8,10 +8,10 @@ pipeline {
 	    steps {
     	    script {
 		 image_name = "overview-project"
+		 archive_name = "${image_name}.tgz"
                  sh "sudo ls -la"
                  sh "java -version"
 		 sh "sudo docker ps"
-
 	        }
    	        archiveArtifacts artifacts: "${archive_name}"
         }
