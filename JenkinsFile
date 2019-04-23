@@ -20,7 +20,7 @@ pipeline {
     stage('Clean') {
 	 steps {
 		script {
-
+			sh "sudo ls -la"
 			}
 		}
 	}
