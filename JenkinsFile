@@ -1,7 +1,10 @@
 pipeline {
 
     agent any
-
+    tools { 
+        maven 'Maven 3.3.9' 
+        jdk 'jdk8' 
+    }
     stages {
 
     stage('Build') {
@@ -12,6 +15,8 @@ pipeline {
                  sh "sudo ls -la"
                  sh "java -version"
 		 sh "mvn --version"
+		 echo "PATH = ${PATH}"
+                 echo "M2_HOME = ${M2_HOME}"
 		
 	        }
    	        
