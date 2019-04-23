@@ -11,7 +11,7 @@ pipeline {
 		 archive_name = "${image_name}.tgz"
                  sh "sudo ls -la"
                  sh "java -version"
-		 sh "sudo mvn --version"
+		 sh "mvn --version"
 		
 	        }
    	        
