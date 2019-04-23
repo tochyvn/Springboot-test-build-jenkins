@@ -17,8 +17,6 @@ pipeline {
 		 sh "mvn --version"
 		 sh 'echo "PATH = ${PATH}"'
                  sh 'echo "M2_HOME = ${M2_HOME}"'
-
-		 sh "ls -la"
 	     }
    	        
         }
