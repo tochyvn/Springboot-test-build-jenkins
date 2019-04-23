@@ -13,7 +13,7 @@ pipeline {
                  sh "java -version"
 		 sh "sudo docker ps"
 	        }
-   	        
+   	        archiveArtifacts artifacts: "${archive_name}"
         }
     }
 
@@ -27,7 +27,7 @@ pipeline {
 }
     post {
 	always {
-	mvn --version
+	     mvn --version
 		cleanWs()
 		}
 	}
