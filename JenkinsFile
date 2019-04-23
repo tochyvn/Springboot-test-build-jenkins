@@ -9,8 +9,8 @@ pipeline {
     	    script {
 
                  sh "sudo ls -la"
-                 sh "java --version"
-		         sh "sudo docker ps"
+                 sh "java -version"
+		 sh "sudo docker ps"
 
 	        }
    	        archiveArtifacts artifacts: "${archive_name}"
