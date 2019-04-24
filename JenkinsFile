@@ -10,30 +10,38 @@ pipeline {
     stage('Build') {
 	    steps {
     	    script {
-	    	 sh "ls -la .."
-		 sh "ls -la ../.."
-		 build = "overview-project-build"
-		 archivejar = "simple-spring-security-imp-0.0.1-SNAPSHOT.jar"
-                 sh "sudo ls -la"
+
+         sh "sudo ls -la"
 		 sh "mvn clean install -DskipTests"
 		 
                  sh "java -version"
 		 sh "mvn --version"
 		 sh 'echo "PATH = ${PATH}"'
                  sh 'echo "M2_HOME = ${M2_HOME}"'
-		 
-		 sh "sudo mkdir -pv ${WORKSPACE}/livraison/"
-		 sh "sudo rm -rfv ${WORKSPACE}/livraison/*"
-		 sh "sudo rm -rfv ${WORKSPACE}/livraison.zip"
-		 
-		 sh "sudo mkdir -pv ${build}"
-		 sh "sudo rm -rfv ${build}/*"
-		 sh "sudo cp -v target/${archivejar} ${build}"
-		 sh "sudo cp -v dockerfile ${build}"
-		 
-		 sh 'zip -r ${WORKSPACE}/livraison/livraison.zip ${build}'
+
 	     }
    	        
+        }
+    }
+
+    stage('Zip archive'){
+        agent { label 'linux' }
+        steps{
+             script{
+                 build = "overview-project-build"
+                 archivejar = "simple-spring-security-imp-0.0.1-SNAPSHOT.jar"
+
+                 sh "sudo mkdir -pv ${WORKSPACE}/livraison/"
+                 sh "sudo rm -rfv ${WORKSPACE}/livraison/*"
+                 sh "sudo rm -rfv ${WORKSPACE}/livraison.zip"
+
+                 sh "sudo mkdir -pv ${build}"
+                 sh "sudo rm -rfv ${build}/*"
+                 sh "sudo cp -v target/${archivejar} ${build}"
+                 sh "sudo cp -v dockerfile ${build}"
+
+                 zip archive: true, dir: ${build}, glob: '', zipFile: ${WORKSPACE}'/livraison/livraison.zip'
+             }
         }
     }
 
