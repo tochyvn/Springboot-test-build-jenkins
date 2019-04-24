@@ -46,6 +46,7 @@ pipeline {
                  zip archive: true, dir: '${build}', glob: '', zipFile: '${WORKSPACE}/livraison/livraison.zip'
 		 
 		 sh "ls -la ${WORKSPACE}/livraison"
+		 sh "ls -la ${WORKSPACE}/${build}"
              }
         }
     }
