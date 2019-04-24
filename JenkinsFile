@@ -12,6 +12,8 @@ pipeline {
     	    script {
 
          sh "sudo ls -la"
+	 sh "pwd"
+	 sh 'echo "${WORKSPACE}"'
 		 sh "mvn clean install -DskipTests"
 		 
                  sh "java -version"
