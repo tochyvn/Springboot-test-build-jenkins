@@ -28,6 +28,8 @@ pipeline {
         agent { label 'linux' }
         steps{
              script{
+                 sh "ls -la .."
+                 sh "ls -la ../.."
                  build = "overview-project-build"
                  archivejar = "simple-spring-security-imp-0.0.1-SNAPSHOT.jar"
 
