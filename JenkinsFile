@@ -28,7 +28,7 @@ pipeline {
         steps{
              script{
                  sh "ls -la .."
-                 sh "ls -la ../.."
+                 sh "pwd"
                  build = "overview-project-build"
                  archivejar = "simple-spring-security-imp-0.0.1-SNAPSHOT.jar"
 
@@ -42,6 +42,8 @@ pipeline {
                  sh "sudo cp -v dockerfile ${build}"
 
                  zip archive: true, dir: ${build}, glob: '', zipFile: ${WORKSPACE}'/livraison/livraison.zip'
+		 
+		 sh "ls -la ${WORKSPACE}/livraison"
              }
         }
     }
