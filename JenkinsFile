@@ -25,7 +25,6 @@ pipeline {
     }
 
     stage('Zip archive'){
-        agent { label 'linux' }
         steps{
              script{
                  sh "ls -la .."
@@ -44,6 +43,7 @@ pipeline {
 
                  zip archive: true, dir: ${build}, glob: '', zipFile: ${WORKSPACE}'/livraison/livraison.zip'
              }
+	     archiveArtifacts artifacts: ${WORKSPACE}'/livraison/livraison.zip', fingerprint: true
         }
     }
 
