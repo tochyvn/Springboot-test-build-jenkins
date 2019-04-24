@@ -29,6 +29,7 @@ pipeline {
                                  path_to_file = "/"
                                  file_name = "/tochap"
                                  remote_dir_path = "/test"
+				 sh "ls -la"
                           sshPublisher(
                            continueOnError: false, failOnError: true,
                            publishers: [
