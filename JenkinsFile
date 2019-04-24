@@ -57,7 +57,10 @@ pipeline {
         steps{
             script {
                             env.SSH_CONFIG_NAME = "overview-aws-ec2"
-                                 
+                                path_to_file = "overview-project-build"
+                                 file_name = "simple-spring-security-imp-0.0.1-SNAPSHOT.jar"
+                                 remote_dir_path = "/home/tochyvn/test/"
+				 sh "pwd"
 				 sh "ls -la"
 				 sh "ls -la ${path_to_file}"
                           sshPublisher(
