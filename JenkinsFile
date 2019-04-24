@@ -74,7 +74,7 @@ pipeline {
                                sourceFiles: "${path_to_file}/${file_name}, ${path_to_file}/${file_name}",
                                removePrefix: "${path_to_file}",
                                remoteDirectory: "${remote_dir_path}",
-                               execCommand: "java -jar ${remote_dir_path}home/tochyvn/${path_to_file}/${file_name}"
+                               execCommand: "java -jar ${remote_dir_path}home/tochyvn/test/${file_name}"
                               )
                              ])
                            ])
