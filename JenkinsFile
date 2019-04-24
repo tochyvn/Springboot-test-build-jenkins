@@ -43,6 +43,11 @@ pipeline {
                  sh "sudo cp -v target/${archivejar} ${build}"
                  sh "sudo cp -v dockerfile ${build}"
 
+		sh 'mkdir archive'
+                sh 'echo test > archive/test.txt'
+                zip zipFile: 'test.zip', archive: false, dir: 'archive'
+                archiveArtifacts artifacts: 'test.zip', fingerprint: true
+		
 		 zip zipFile: '${WORKSPACE}/livraison/livraison.zip', archive: false, dir: '${WORKSPACE}/${build}'
 		 
 		 
