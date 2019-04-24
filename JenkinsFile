@@ -43,7 +43,7 @@ pipeline {
                  sh "sudo cp -v target/${archivejar} ${build}"
                  sh "sudo cp -v dockerfile ${build}"
 
-                 zip archive: true, dir: '${WORKSPACE}/${build}', glob: '', zipFile: '${WORKSPACE}/livraison/livraison.zip'
+		 zip zipFile: '${WORKSPACE}/livraison/livraison.zip', archive: false, dir: '${WORKSPACE}/${build}'
 		 
 		 sh "ls -la ${WORKSPACE}/livraison"
 		 sh "ls -la ${WORKSPACE}/${build}"
