@@ -35,7 +35,7 @@ pipeline {
                  archivejar = "livraison.zip"
 		 jarfile = "simple-spring-security-imp-0.0.1-SNAPSHOT.jar"
 		 dockerfile = "dockerfile"
-		 docker-compose = "docker-compose.yml"
+		 dockercompose = "docker-compose.yml"
 
                  sh "sudo mkdir -pv ${WORKSPACE}/livraison/"
                  sh "sudo rm -rfv ${WORKSPACE}/livraison/*"
@@ -43,7 +43,7 @@ pipeline {
 
                  sh "sudo mkdir -pv ${build}"
                  sh "sudo rm -rfv ${build}/*"
-                 sh "sudo cp -v target/${jarfile} ${dockerfile} ${docker-compose} ${build}"
+                 sh "sudo cp -v target/${jarfile} ${dockerfile} ${dockercompose} ${build}"
 
 		sh 'zip -v'
                 sh "sudo zip -r ${WORKSPACE}/livraison/livraison.zip ${WORKSPACE}/${build}"		 
