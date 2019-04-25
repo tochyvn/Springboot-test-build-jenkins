@@ -45,7 +45,7 @@ pipeline {
 
 		sh 'gzip --version'
 		sh 'zip -v'
-                sh "zip -r ${WORKSPACE}/livraison/livraison.zip ${WORKSPACE}/${build}"		 
+                sh "sudo zip -r ${WORKSPACE}/livraison/livraison.zip ${WORKSPACE}/${build}"		 
 		 
 		sh "ls -la ${WORKSPACE}/livraison"
 		sh "ls -la ${WORKSPACE}/${build}"
