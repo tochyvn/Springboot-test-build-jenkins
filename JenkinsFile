@@ -73,9 +73,9 @@ pipeline {
                              verbose: true,
                              transfers: [
                               sshTransfer(
-                               sourceFiles: "${path_to_file}/${file_name}, ${path_to_file}/${file_name}",
+                               sourceFiles: "${path_to_file}/${file_name}",
                                removePrefix: "${path_to_file}",
-                               remoteDirectory: "${remote_dir_path}",
+                               remoteDirectory: "/",
                                execCommand: "cd ${remote_dir_path} && ls -la . && sudo unzip -o ${file_name} -d ${remote_dir_path} && sudo docker-compose up --build -d"
                               )
                              ])
