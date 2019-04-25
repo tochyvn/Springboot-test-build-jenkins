@@ -61,8 +61,7 @@ pipeline {
                             env.SSH_CONFIG_NAME = "overview-aws-ec2"
                                 path_to_file = "livraison"
                                  file_name = "livraison.zip"
-                                 remote_dir_path = "${HOME}/test"
-				 zip_directory = ''
+                                 remote_dir_path = "/home/tochyvn/test"
 				 sh "pwd"
 				 sh "ls -la"
 				 sh "ls -la ${path_to_file}"
