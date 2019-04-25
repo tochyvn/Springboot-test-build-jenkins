@@ -43,8 +43,7 @@ pipeline {
 
                  sh "sudo mkdir -pv ${build}"
                  sh "sudo rm -rfv ${build}/*"
-                 sh "sudo cp -v target/${jarfile} ${build}"
-                 sh "sudo cp -v ${dockerfile} ${docker-compose} ${build}"
+                 sh "sudo cp -v target/${jarfile} ${dockerfile} ${docker-compose} ${build}"
 
 		sh 'zip -v'
                 sh "sudo zip -r ${WORKSPACE}/livraison/livraison.zip ${WORKSPACE}/${build}"		 
