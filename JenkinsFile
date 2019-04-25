@@ -31,8 +31,8 @@ pipeline {
              script{
                  sh "ls -la .."
                  sh "pwd"
-                 build = "overview-project-build"
-                 archivejar = "simple-spring-security-imp-0.0.1-SNAPSHOT.jar"
+                 build = "livraison"
+                 archivejar = "livraison.zip"
 
                  sh "sudo mkdir -pv ${WORKSPACE}/livraison/"
                  sh "sudo rm -rfv ${WORKSPACE}/livraison/*"
@@ -58,8 +58,8 @@ pipeline {
         steps{
             script {
                             env.SSH_CONFIG_NAME = "overview-aws-ec2"
-                                path_to_file = "overview-project-build"
-                                 file_name = "simple-spring-security-imp-0.0.1-SNAPSHOT.jar"
+                                path_to_file = "livraison"
+                                 file_name = "livraison.zip"
                                  remote_dir_path = "/"
 				 sh "pwd"
 				 sh "ls -la"
@@ -75,7 +75,9 @@ pipeline {
                                sourceFiles: "${path_to_file}/${file_name}, ${path_to_file}/${file_name}",
                                removePrefix: "${path_to_file}",
                                remoteDirectory: "${remote_dir_path}",
-                               execCommand: "java -jar ${remote_dir_path}home/tochyvn/test/${file_name}"
+                               execCommand: "
+			       		ls -la ${path_to_file} && sudo unzip -o ${path_to_file}/${file_name}
+			       "
                               )
                              ])
                            ])
