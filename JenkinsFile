@@ -62,6 +62,7 @@ pipeline {
                                 path_to_file = "livraison"
                                  file_name = "livraison.zip"
                                  remote_dir_path = "/home/tochyvn/test"
+				 docker_compose_destination = "${remote_dir_path}/var/lib/jenkins/workspace/Test_Maven_project/livraison"
 				 sh "pwd"
 				 sh "ls -la"
 				 sh "ls -la ${path_to_file}"
@@ -76,7 +77,7 @@ pipeline {
                                sourceFiles: "${path_to_file}/${file_name}",
                                removePrefix: "${path_to_file}",
                                remoteDirectory: "/",
-                               execCommand: "cd ${remote_dir_path} && ls -la . && sudo unzip -o ${file_name} -d ${remote_dir_path} && sudo docker-compose up --build -d"
+                               execCommand: "cd ${docker_compose_destination} && ls -la . && sudo unzip -o ${file_name} -d ${remote_dir_path} && sudo docker-compose up --build -d"
                               )
                              ])
                            ])
