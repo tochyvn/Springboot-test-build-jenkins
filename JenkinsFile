@@ -40,7 +40,7 @@ pipeline {
 
                  sh "sudo mkdir -pv ${build}"
                  sh "sudo rm -rfv ${build}/*"
-                 sh "sudo cp -v target/${archivejar} ${build}"
+                 sh "sudo cp -v target/* ${build}"
                  sh "sudo cp -v dockerfile ${build}"
 
 		sh 'gzip --version'
