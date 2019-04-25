@@ -10,8 +10,8 @@ services:
       - MYSQL_PASSWORD=app_user
     volumes:
       - /data/mysql
-    port:
-      -2310:3306
+    ports:
+      - 2310:3306
 
   spring-overview-app:
     image: spring-boot-jpa-image
@@ -21,6 +21,6 @@ services:
     depends_on:
       - mysql-docker-container
     ports:
-      - 8087:8080
+      - 9090:9090
     volumes:
       - /data/spring-overview-app
