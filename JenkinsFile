@@ -75,9 +75,7 @@ pipeline {
                                sourceFiles: "${path_to_file}/${file_name}, ${path_to_file}/${file_name}",
                                removePrefix: "${path_to_file}",
                                remoteDirectory: "${remote_dir_path}",
-                               execCommand: "
-			       		ls -la ${path_to_file} && sudo unzip -o ${path_to_file}/${file_name}
-			       "
+                               execCommand: "ls -la ${path_to_file} && sudo unzip -o ${path_to_file}/${file_name}"
                               )
                              ])
                            ])
