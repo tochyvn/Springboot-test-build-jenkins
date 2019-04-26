@@ -97,11 +97,14 @@ pipeline {
     post {
 	always {
 		cleanWs()
-		sh 'ls -la "${WORKSPACE}"'
+		sh 'ls -la ${WORKSPACE}/..'
 		
-		sh 'ls -la "${WORKSPACE}"/..'
-		sh 'rm -rfv ${WORKSPACE}/..'
 	}
+	cleanup {
+		sh 'rm -rfv ${WORKSPACE}/../'
+        	deleteDir()
+		sh 'ls -la "${WORKSPACE}"/..'
+    	}
     }
 }
 
