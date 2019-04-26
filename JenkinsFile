@@ -101,7 +101,7 @@ pipeline {
 		
 	}
 	cleanup {
-		sh 'rm -rfv ${WORKSPACE}/../'
+		sh 'rm -rfv ${WORKSPACE}/../Test_Maven_proj*'
         	deleteDir()
 		sh 'ls -la "${WORKSPACE}"/..'
     	}
