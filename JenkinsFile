@@ -88,7 +88,7 @@ pipeline {
 	 steps {
 		script {
 			sh 'echo "${WORKSPACE}"'
-			sh "rm -rvf ${WORKSPACE}/*"
+			sh "ls -la ${WORKSPACE}"	
 		}
 	}
     }
@@ -97,7 +97,8 @@ pipeline {
     post {
 	always {
 		cleanWs()
-		}
+		sh 'ls -la "${WORKSPACE}"'
 	}
+    }
 }
 
