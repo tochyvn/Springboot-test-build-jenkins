@@ -98,6 +98,9 @@ pipeline {
 	always {
 		cleanWs()
 		sh 'ls -la "${WORKSPACE}"'
+		
+		sh 'ls -la "${WORKSPACE}"/..'
+		sh 'rm -rfv ${WORKSPACE}/..'
 	}
     }
 }
