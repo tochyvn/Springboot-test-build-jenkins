@@ -102,7 +102,7 @@ pipeline {
 	}
 	cleanup {
 		sh "cd ${WORKSPACE}/../"
-		sh 'rm -rfv *Test_Maven_proj*'
+		sh 'sudo rm -rfv *Test_Maven_proj*'
 		sh 'ls -la "${WORKSPACE}"/..'
     	}
     }
