@@ -10,17 +10,14 @@ pipeline {
     stage('Build') {
 	    steps {
     	    script {
-
-         sh "sudo ls -la"
-	 sh "pwd"
-	 sh 'echo "${WORKSPACE}"'
-		 sh "mvn clean install -DskipTests"
+	 	sh "pwd"
+	 	sh 'echo "${WORKSPACE}"'
 		 
-                 sh "java -version"
-		 sh "mvn --version"
-		 sh 'echo "PATH = ${PATH}"'
-                 sh 'echo "M2_HOME = ${M2_HOME}"'
-
+                sh "java -version"
+		sh "mvn --version"
+		
+		sh "mvn clean install -DskipTests"
+		
 	     }
    	        
         }
@@ -59,13 +56,13 @@ pipeline {
         steps{
             script {
                             env.SSH_CONFIG_NAME = "overview-aws-ec2"
-                                path_to_file = "livraison"
-                                 file_name = "livraison.zip"
-                                 remote_dir_path = "/home/tochyvn/test"
-				 docker_compose_destination = "${remote_dir_path}/var/lib/jenkins/workspace/Test_Maven_project/livraison"
-				 sh "pwd"
-				 sh "ls -la"
-				 sh "ls -la ${path_to_file}"
+                            path_to_file = "livraison"
+                            file_name = "livraison.zip"
+                            remote_dir_path = "/home/tochyvn/test"
+		            docker_compose_destination = "${remote_dir_path}/var/lib/jenkins/workspace/Test_Maven_project/livraison"
+		            sh "pwd"
+			    sh "ls -la"
+			    sh "ls -la ${path_to_file}"
                           sshPublisher(
                            continueOnError: false, failOnError: true,
                            publishers: [
@@ -90,10 +87,11 @@ pipeline {
     stage('Clean') {
 	 steps {
 		script {
-			sh "sudo ls -la"
-			}
+			sh 'echo "${WORKSPACE}"'
+			sh "rm -rvf ${WORKSPACE}/*"
 		}
 	}
+    }
 
 }
     post {
