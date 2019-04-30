@@ -74,7 +74,7 @@ pipeline {
                                sourceFiles: "${path_to_file}/${file_name}",
                                removePrefix: "${path_to_file}",
                                remoteDirectory: "/",
-                               execCommand: "pwd && sudo unzip -o ${remote_dir_path}/${file_name} -d ${remote_dir_path} && cd ${docker_compose_destination} && sudo docker-compose up --build -d"
+                               execCommand: "pwd && sudo unzip -o ${remote_dir_path}/${file_name} -d ${remote_dir_path} && cd ${docker_compose_destination} && docker-compose up --build -d"
                               )
                              ])
                            ])
