@@ -55,10 +55,10 @@ pipeline {
     stage('SSH transfer') {
         steps{
             script {
-                            env.SSH_CONFIG_NAME = "overview-aws-ec2"
+                            env.SSH_CONFIG_NAME = "MyAWSEC2Instance"
                             path_to_file = "livraison"
                             file_name = "livraison.zip"
-                            remote_dir_path = "/home/tochyvn/test"
+                            remote_dir_path = "/home/jenkins"
 		            docker_compose_destination = "${remote_dir_path}/var/lib/jenkins/workspace/Test_Maven_project/livraison"
 		            sh "pwd"
 			    sh "ls -la"
