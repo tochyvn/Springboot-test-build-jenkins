@@ -25,7 +25,7 @@ pipeline {
     }
     
     stage('SSH transfer') {
-    	 env.SSH_CONFIG_NAME = "overview-aws-ec2"
+    	 env.SSH_CONFIG_NAME = "MyAWSEC2Instance"
 	 path_to_file = "/"
 	 file_name = "/tochap"
 	 remote_dir_path = "/test"
