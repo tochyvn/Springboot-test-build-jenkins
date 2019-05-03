@@ -12,7 +12,7 @@ pipeline {
 		script {
 		    def scannerHome = tool 'SonarQube3.3';
 	            withSonarQubeEnv('SonarQubeServer'){
-                    	sh "mvn clean install -DskipTests sonar:sonar -Dsonar.branch.name=develop -Dsonar.projectKey=test-maven -Dsonar.host.url=http://168.62.56.161:9000 -Dsonar.login=625ebaaae3298392dd6e153e02228dcd788d30ea"
+                    	sh "mvn clean install -DskipTests sonar:sonar -Dsonar.projectKey=test-maven -Dsonar.host.url=http://168.62.56.161:9000 -Dsonar.login=625ebaaae3298392dd6e153e02228dcd788d30ea"
 		    }
                 }
 	    }
