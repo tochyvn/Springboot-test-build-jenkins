@@ -6,6 +6,17 @@ pipeline {
         maven 'Maven' 
     }
     stages {
+    
+    stage('Sonar analysis') {
+            steps {
+		script {
+		    def scannerHome = tool 'SonarQube Scanner';
+	            withSonarQubeEnv('sonarqube'){
+                    sh "${scannerHome}/bin/sonar-scanner   -Dsonar.projectKey=master -Dsonar.sources=src -Dsonar.login=admin -Dsonar.password=admin"
+		    }
+                }
+	    }
+        }
 
     stage('Build') {
 	    steps {
